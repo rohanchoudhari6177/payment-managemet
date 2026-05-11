@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Payment Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="branding">
+      <span class="logo">PaySmart</span>
+      <h1>Digital Payment Dashboard</h1>
+    </div>
+    <div class="header-actions">
+      <div class="header-chip">Live</div>
+      <div class="header-user">Admin</div>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <section class="stats-panel">
+      <article class="stat-card">
+        <p>Total Revenue</p>
+        <h2 id="totalRevenue">₹0</h2>
+      </article>
+      <article class="stat-card success">
+        <p>Successful Payments</p>
+        <h2 id="successCount">0</h2>
+      </article>
+      <article class="stat-card warning">
+        <p>Pending / Refunded</p>
+        <h2 id="pendingCount">0</h2>
+      </article>
+      <article class="stat-card danger">
+        <p>Failed Payments</p>
+        <h2 id="failedCount">0</h2>
+      </article>
+    </section>
+
+    <section class="grid-panel">
+      <aside class="card card-form">
+        <div class="card-header">
+          <div>
+            <h2>Process New Payment</h2>
+            <p>Enter details to simulate a digital transaction.</p>
+          </div>
+        </div>
+
+        <form id="paymentForm" class="form-grid">
+          <label>
+            Order ID
+            <input type="text" id="orderId" placeholder="e.g. ORD-1024" required>
+          </label>
+          <label>
+            Amount
+            <input type="number" id="amount" placeholder="Amount" required>
+          </label>
+          <label>
+            Payment Method
+            <select id="paymentMethod" required>
+              <option value="">Select method</option>
+              <option>Credit Card</option>
+              <option>Debit Card</option>
+              <option>PayPal</option>
+              <option>Bank Transfer</option>
+            </select>
+          </label>
+          <label>
+            Status
+            <select id="paymentStatus" required>
+              <option value="">Select status</option>
+              <option>Paid</option>
+              <option>Failed</option>
+              <option>Refunded</option>
+            </select>
+          </label>
+          <button type="submit">Add Payment</button>
+        </form>
+      </aside>
+
+      <section class="card card-table">
+        <div class="card-header">
+          <div>
+            <h2>Recent Transactions</h2>
+            <p>Monitor payment activity in real time.</p>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Order</th>
+                <th>Amount</th>
+                <th>Method</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="paymentTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
